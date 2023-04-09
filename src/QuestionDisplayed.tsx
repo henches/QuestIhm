@@ -6,6 +6,7 @@ export interface QuestionDisplayedProps {
    setAnswer: (id: number, answer: EChoice4) => void
 }
 
+
 export default function QuestionDisplayed(props: QuestionDisplayedProps) {
    function setAnswer(answer: EChoice4) {
       props.setAnswer(props.questionWithAnswer.id, answer)
