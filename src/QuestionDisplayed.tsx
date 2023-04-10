@@ -3,7 +3,8 @@ import QuestionWithAnswer from "./QuestionWithAnswer"
 
 export interface QuestionDisplayedProps {
    questionWithAnswer: QuestionWithAnswer,
-   setAnswer: (id: number, answer: EChoice4) => void
+   setAnswer: (id: number, answer: EChoice4) => void,
+   id?: string
 }
 
 
@@ -12,9 +13,9 @@ export default function QuestionDisplayed(props: QuestionDisplayedProps) {
       props.setAnswer(props.questionWithAnswer.id, answer)
    }
    return (
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
+      <div id={props.id} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
          <p style={{ fontFamily: "Open Sans, Helvetica Neue, Arial, sans-serif", fontSize: "22px" }}>
-            {props.questionWithAnswer.questionText}
+            {`${props.questionWithAnswer.id}.${props.questionWithAnswer.questionText}`}
          </p>
          <Answer4 answer={props.questionWithAnswer.answer} setAnswer={setAnswer} />
       </div>
