@@ -16,16 +16,42 @@ export default function Choice4(props: Choice4Props) {
    function onChange(e: RadioChangeEvent) {
       props.setAnswer(e.target.value)
    }
+
+   const radioGroup = (
+      <Radio.Group className="centered-radio-group" size='large' onChange={onChange} value={props.answer}>
+         <Radio className="radio-big " value={1} />
+         <div className='space-beween-radios' />
+         <Radio className="radio-normal" value={2} />
+         <div className='space-beween-radios' />
+         <Radio className="radio-normal" value={3} />
+         <div className='space-beween-radios' />
+         <Radio className="radio-big" value={4} />
+      </Radio.Group>
+   )
+   const agree = (
+      <p style={{ fontSize: '18px' }}>D'accord</p>
+   )
+
+   const disagree = (
+      <p style={{ fontSize: '18px' }}>Pas d'accord</p>
+   )
+
    return (
-      <div style={{ display: 'flex' }}>
-         <p style={{ fontSize: '22px', marginRight: '30px' }}>D'accord</p>
-         <Radio.Group className="centered-radio-group" size='large' onChange={onChange} value={props.answer}>
-            <Radio className="radio-big" value={1}></Radio>
-            <Radio className="radio-normal" value={2}></Radio>
-            <Radio className="radio-normal" value={3}></Radio>
-            <Radio className="radio-big" value={4}></Radio>
-         </Radio.Group>
-         <p style={{ fontSize: '22px' }}>Pas d'accord</p>
-      </div>
+      <>
+         <div className="answer-container-large" style={{ justifyContent: 'center', width: '100%' }}>
+            {agree}
+            <div className='space-between-hint-and-radios' />
+            {radioGroup}
+            <div className='space-between-hint-and-radios' />
+            {disagree}
+         </div>
+         <div className="answer-container-small" style={{ flexDirection: 'column', justifyContent: 'center' }}>
+            {radioGroup}
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+               {agree}
+               {disagree}
+            </div>
+         </div>
+      </>
    )
 }

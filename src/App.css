@@ -43,13 +43,6 @@
    justify-content: center;
    flex-wrap: wrap;
 }
-.radio-group .ant-radio-wrapper {
-   margin-right: 40px;
-}
-
-:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper {
-   margin-inline-end: 33px;
-}
 
 .radio-big .ant-radio-inner {
    width: 32px;
@@ -69,4 +62,37 @@
 .radio-normal .ant-radio-inner::after {
    width: 0;
    height: 0;
+}
+
+
+@media (min-width: 1170px) {
+   .answer-container-large {
+      display: flex;
+   }
+
+   .answer-container-small {
+      display: none;
+   }
+}
+
+@media (max-width: 1169px) {
+   .answer-container-large {
+      display: none;
+   }
+
+   .answer-container-small {
+      display: flex;
+   }
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper {
+   margin-inline-end: 0;
+}
+
+.space-beween-radios {
+   min-width: 40px;
+}
+
+.space-between-hint-and-radios {
+   min-width: 40px;
 }
